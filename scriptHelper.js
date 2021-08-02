@@ -1,5 +1,6 @@
+
 // Write your helper functions here!
-require('isomorphic-fetch');
+require("isomorphic-fetch");
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
@@ -25,7 +26,6 @@ function validateInput(testInput) {
         return "Is a Number";
     }
     return "";
-
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
@@ -34,33 +34,37 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
 
     if (fuelLevel < 10000) {
-        list.style.visibility = 'visible';
-        document.getElementById('fuelStatus').innerHTML = 'Fuel level too low for launch';
-        document.getElementById('launchStatus').innerHTML = 'Shuttle Not Ready for Launch';
-        document.getElementById('launchStatus').style.color = 'rgb(199, 37, 78)';
+        list.style.visibility = "visible";
+        document.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch";
+        document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
+        document.getElementById("launchStatus").style.color = "red";
     }
-    if (fuelLevel > 10000) {
-        list.style.visibility = 'visible';
-        document.getElementById('fuelStatus').innerHTML = 'Fuel level high enough for launch';
-        document.getElementById('cargoStatus').innerHTML = 'Cargo mass too heavy for launch';
-        document.getElementById('launchStatus').innerHTML = 'Shuttle Not Ready for Launch';
-        document.getElementById('launchStatus').style.color = 'rgb(199, 37, 78)';
+
+    if (cargoMass > 10000) {
+        list.style.visibility = "visible";
+        document.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch";
+        document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
+        document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
+        document.getElementById("launchStatus").style.color = "red";
     }
-    if (fuelLevel < 10000 && cargoLevel > 10000) {
-        list.style.visibility = 'visible';
-        document.getElementById('fuelStatus').innerHTML = 'Fuel level too low for launch';
-        document.getElementById('cargoStatus').innerHTML = 'Cargo mass too heavy for launch';
-        document.getElementById('launchStatus').innerHTML = 'Shuttle Not Ready for Launch';
-        document.getElementById('launchStatus').style.color = 'rgb(199, 37, 78)';
+
+    if (fuelLevel < 10000 && cargoMass > 10000) {
+        list.style.visibility = "visible";
+        document.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch";
+        document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
+        document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
+        document.getElementById("launchStatus").style.color = "red";
     }
-    if (fuelLevel >= 10000 && cargoLevel <= 10000) {
-        list.style.visibility = 'visible';
-        document.getElementById('fuelStatus').innerHTML = 'Fuel level high enough for launch';
-        document.getElementById('cargoStatus').innerHTML = 'Cargo mass low enough for launch';
-        document.getElementById('launchStatus').innerHTML = 'Shuttle is Ready for Launch';
-        document.getElementById('launchStatus').style.color = 'rgb(65, 159, 106)';
+
+    if (fuelLevel >= 10000 && cargoMass <= 10000) {
+        list.style.visibility = "visible";
+        document.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch";
+        document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
+        document.getElementById("launchStatus").innerHTML = "Shuttle is Ready for Launch";
+        document.getElementById("launchStatus").style.color = "green";
     }
 }
+
 
 async function myFetch() {
     let planetsReturned;
