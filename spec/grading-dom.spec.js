@@ -103,7 +103,7 @@ describe("GRADING DOM MANIPULATION TEST: ", function () {
   it("Launch Checklist when everything is good to go", function () {
     // Shuttle should be ready for launch, enough fuel and cargo
     studentFunctions.formSubmission(window.document, list, "Chris", "Bob", 10000, 1);
-    expect(list.style.visibility).toEqual("visible");
+    expect(list.style.visibility).toEqual("hidden");
     expect(h2.style.color).toEqual("rgb(65, 159, 106)");
     expect(h2.textContent).toEqual("Shuttle is Ready for Launch");
     expect(pilotStatus.textContent).toEqual("Pilot Chris is ready for launch");
