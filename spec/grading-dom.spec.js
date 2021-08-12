@@ -53,7 +53,7 @@ describe("GRADING DOM MANIPULATION TEST: ", function () {
 
   it("Launch CheckList is ready to go", function () {
     // Check page before form submission to make sure everything is working
-    expect("").toEqual("hidden");
+    expect(list.style.visibility).toEqual("hidden");
     expect(pilotStatus.textContent).toEqual("Pilot Ready");
     expect(copilotStatus.textContent).toEqual("Co-pilot Ready");
     expect(fuelStatus.textContent).toEqual("Fuel level high enough for launch");
@@ -103,7 +103,7 @@ describe("GRADING DOM MANIPULATION TEST: ", function () {
   it("Launch Checklist when everything is good to go", function () {
     // Shuttle should be ready for launch, enough fuel and cargo
     studentFunctions.formSubmission(window.document, list, "Chris", "Bob", 10000, 1);
-    expect(list.style.visibility).toEqual("hidden");
+    expect(list.style.visibility).toEqual("visible");
     expect(h2.style.color).toEqual("rgb(65, 159, 106)");
     expect(h2.textContent).toEqual("Shuttle is Ready for Launch");
     expect(pilotStatus.textContent).toEqual("Pilot Chris is ready for launch");
